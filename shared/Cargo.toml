@@ -1,0 +1,19 @@
+[package]
+name = "shared"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = "z"
+debug = false
+lto = true
+codegen-units = 1
+panic = "abort"
+overflow-checks = false
+strip = true
+incremental = false
+debug-assertions = false
+rpath = false
+
+[dependencies]
+rand = { version = "0.9.1", default-features = false, features = ["os_rng"] }

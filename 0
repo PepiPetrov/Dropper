@@ -1,0 +1,191 @@
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   /media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/shared/Cargo.toml
+workspace: /media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/Cargo.toml
+   Compiling cli v0.1.0 (/media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running `target/debug/cli --input mimikatz.exe --mode PE -t ghostly-hollowing -e chacha20`
+ __   __                        _____                      
+ \ \ / /   ___    __ _   _ __  |__  /   ___   _ __    ___  
+  \ V /   / _ \  / _` | | '__|   / /   / _ \ | '__|  / _ \ 
+   | |   |  __/ | (_| | | |     / /_  |  __/ | |    | (_) |
+   |_|    \___|  \__,_| |_|    /____|  \___| |_|     \___/ 
+                                                           
+
+Compile command:  build --release --no-default-features --bin loader  --features chacha20,pe_ghostlyhollowing --manifest-path ./loader/Cargo.toml --target x86_64-pc-windows-gnu
+stderr: warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   /media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/shared/Cargo.toml
+workspace: /media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/Cargo.toml
+   Compiling loader v0.1.0 (/media/data/MyComp/Batch/Private/c/RandomImplant/rust-other/packer/loader)
+warning: unused import: `fnv1a_hash_wide`
+  --> loader/src/hash.rs:53:9
+   |
+53 | pub use fnv1a_hash_wide;
+   |         ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `call_fn`
+   --> loader/src/resolve/function.rs:109:9
+    |
+109 | pub use call_fn;
+    |         ^^^^^^^
+
+warning: unused variable: `image_base`
+   --> loader/src/get_payload.rs:113:20
+    |
+113 | pub fn get_payload(image_base: *mut u8) -> Vec<u8> {
+    |                    ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_image_base`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unnecessary `unsafe` block
+ --> loader/src/run_payload.rs:2:5
+  |
+2 |     unsafe {
+  |     ^^^^^^ unnecessary `unsafe` block
+  |
+  = note: `#[warn(unused_unsafe)]` on by default
+
+warning: struct `VmInformation` is never constructed
+  --> loader/src/cfg_manip.rs:14:8
+   |
+14 | struct VmInformation {
+   |        ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `cfg_address_add` is never used
+  --> loader/src/cfg_manip.rs:22:15
+   |
+22 | pub unsafe fn cfg_address_add(address: usize) -> NTSTATUS {
+   |               ^^^^^^^^^^^^^^^
+
+warning: function `get_resource_data` is never used
+  --> loader/src/get_payload.rs:10:15
+   |
+10 | pub unsafe fn get_resource_data(h_module: *mut u8, resource_id: u16) -> Option<Vec<u8>> {
+   |               ^^^^^^^^^^^^^^^^^
+
+warning: function `get_section_headers` is never used
+  --> loader/src/techniques/pe_utils.rs:24:8
+   |
+24 | pub fn get_section_headers<'a>(nt_headers: &'a IMAGE_NT_HEADERS64) -> &'a [IMAGE_SECTION_HEADER] {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_section_protection` is never used
+  --> loader/src/techniques/pe_utils.rs:34:8
+   |
+34 | pub fn get_section_protection(characteristics: u32) -> u32 {
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_section_protection` is never used
+  --> loader/src/techniques/pe/manual_map.rs:22:4
+   |
+22 | fn get_section_protection(characteristics: u32) -> u32 {
+   |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `manual_map` is never used
+  --> loader/src/techniques/pe/manual_map.rs:38:15
+   |
+38 | pub unsafe fn manual_map(buffer: &[u8]) {
+   |               ^^^^^^^^^^
+
+warning: function `process_ghosting` is never used
+  --> loader/src/techniques/pe/process_ghosting/mod.rs:36:8
+   |
+36 | pub fn process_ghosting(payload: &[u8]) {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `create_ghost_process` is never used
+  --> loader/src/techniques/pe/process_ghosting/ghost_process.rs:25:15
+   |
+25 | pub unsafe fn create_ghost_process(section_handle: usize) -> Option<usize> {
+   |               ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `initialize_process_parms` is never used
+  --> loader/src/techniques/pe/process_ghosting/ghost_process.rs:52:15
+   |
+52 | pub unsafe fn initialize_process_parms(
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `process_herpaderping` is never used
+  --> loader/src/techniques/pe/process_herpaderping/mod.rs:18:15
+   |
+18 | pub unsafe fn process_herpaderping(payload: &[u8]) {
+   |               ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `herpaderply_hollowing` is never used
+   --> loader/src/techniques/pe/process_herpaderping/mod.rs:113:15
+    |
+113 | pub unsafe fn herpaderply_hollowing(payload: &[u8]) {
+    |               ^^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `HerpaderpContext` is never constructed
+  --> loader/src/techniques/pe/process_herpaderping/herpaderp_context.rs:19:12
+   |
+19 | pub struct HerpaderpContext {
+   |            ^^^^^^^^^^^^^^^^
+
+warning: function `create_tmp_path_and_cmdline` is never used
+  --> loader/src/techniques/pe/process_herpaderping/herpaderp_context.rs:27:15
+   |
+27 | pub unsafe fn create_tmp_path_and_cmdline() -> (Vec<u16>, Vec<u16>) {
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `fix_tmp_file_name` is never used
+  --> loader/src/techniques/pe/process_herpaderping/herpaderp_context.rs:55:15
+   |
+55 | pub unsafe fn fix_tmp_file_name(mut tmp_file_name_utf16: Vec<u16>) -> Vec<u16> {
+   |               ^^^^^^^^^^^^^^^^^
+
+warning: function `open_file` is never used
+  --> loader/src/techniques/pe/process_herpaderping/herpaderp_context.rs:66:15
+   |
+66 | pub unsafe fn open_file(file_path: *const u16, access: u32) -> isize {
+   |               ^^^^^^^^^
+
+warning: function `prepare_herpaderp_context` is never used
+  --> loader/src/techniques/pe/process_herpaderping/herpaderp_context.rs:86:15
+   |
+86 | pub unsafe fn prepare_herpaderp_context(payload: &[u8]) -> Option<HerpaderpContext> {
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `overwrite_tmp_file` is never used
+  --> loader/src/techniques/pe/process_herpaderping/overwrite_tmp_file.rs:12:15
+   |
+12 | pub unsafe fn overwrite_tmp_file(
+   |               ^^^^^^^^^^^^^^^^^^
+
+warning: function `process_hollowing` is never used
+  --> loader/src/techniques/pe/process_hollowing.rs:77:15
+   |
+77 | pub unsafe fn process_hollowing(payload: &[u8]) {
+   |               ^^^^^^^^^^^^^^^^^
+
+warning: function `direct` is never used
+ --> loader/src/techniques/shellcode/direct.rs:8:8
+  |
+8 | pub fn direct(payload: &[u8]) {
+  |        ^^^^^^
+
+warning: function `hypnosis` is never used
+  --> loader/src/techniques/shellcode/hypnosis.rs:17:15
+   |
+17 | pub unsafe fn hypnosis(payload: &[u8]) {
+   |               ^^^^^^^^
+
+warning: function `stop_debug` is never used
+   --> loader/src/techniques/shellcode/hypnosis.rs:100:11
+    |
+100 | unsafe fn stop_debug(pi: &PROCESS_INFORMATION) {
+    |           ^^^^^^^^^^
+
+warning: function `process_hollowing` is never used
+  --> loader/src/techniques/shellcode/process_hollowing.rs:10:15
+   |
+10 | pub unsafe fn process_hollowing(payload: &[u8]) {
+   |               ^^^^^^^^^^^^^^^^^
+
+warning: `loader` (bin "loader") generated 27 warnings (run `cargo fix --bin "loader"` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 4.02s
+
