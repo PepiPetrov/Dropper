@@ -5,7 +5,7 @@ use figlet_rs::FIGfont;
 
 use shared::crypt::*;
 
-const NAME: &str = "YearZero";
+const NAME: &str = "..";
 
 enum ObfuscationResult {
     Raw(Vec<u8>),
